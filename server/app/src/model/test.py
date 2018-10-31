@@ -4,6 +4,7 @@
 from . import get_db_conn
 from ..common import log
 import traceback
+from . import dict_2_str_update
 
 logger = log.get_logger()
 
@@ -40,8 +41,27 @@ def db_test_delete(param):
         conn = get_db_conn()
         cursor = conn.cursor()
 
-        sql = "DELETE FROM t_test_info WHERE username=?"
-        cursor.execute(sql, (param["username"],))
+        data = dict_2_str_update(param)
+        sql = "DELETE FROM t_test_info WHERE {}".format(','.join(data[0]))
+        cursor.execute(sql, tuple(data[1]))
+        conn.commit()
+        cursor.close()
+        return True
+    except:
+        logger.debug(traceback.format_exc())
+        return False
+
+
+def db_test_update(param, id):
+    try:
+        logger.debug(param)
+        conn = get_db_conn()
+        cursor = conn.cursor()
+
+        data = dict_2_str_update(param)
+        sql = "UPDATE t_test_info SET {} WHERE id=?".format(','.join(data[0]))
+        data[1].append(id)
+        cursor.execute(sql, tuple(data[1]))
         conn.commit()
         cursor.close()
         return True

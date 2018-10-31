@@ -50,3 +50,28 @@ def delete_test():
     if res:
         return jsonify({"code": 0})
     return jsonify({"code": 10001})
+
+
+@blueprint.route('/<id>', methods=['DELETE'])
+def delete_one_test(id):
+    res = test.db_test_delete({"id": id})
+    if res:
+        return jsonify({"code": 0})
+    return jsonify({"code": 10001})
+
+
+@blueprint.route('/', methods=['PUT'])
+def update_test():
+    data = request.get_json(force=True)
+    if data.has_key("id"):
+        id = data["id"]
+        del data["id"]
+    else:
+        return 10002
+    if not (isinstance(data, dict)):
+        logger.error("create test, data is not dict: data {}".format(data))
+
+    res = test.db_test_update(data, id)
+    if res:
+        return jsonify({"code": 0})
+    return jsonify({"code": 10001})

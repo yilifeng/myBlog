@@ -71,3 +71,136 @@ BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this ser
 2018-10-31 17:22:16,180 DEBUG [app.py:51]: 127.0.0.1 GET /test/ 
 2018-10-31 17:22:16,181 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}, {'username': u'ttt', 'update_time': u'2018-10-31 17:21:54', 'password': u'qqqwww', 'create_time': u'2018-10-31 17:21:54', 'id': 2}]
 2018-10-31 17:22:16,183 DEBUG [app.py:59]: 127.0.0.1 GET /test/ 200 {"data":[{"create_time":"2018-10-31 16:47:19","id":1,"password":"aaabbb","update_time":"2018-10-31 16:47:19","username":"yyy"},{"create_time":"2018-10-31 17:21:54","id":2,"password":"qqqwww","update_time":"2018-10-31 17:21:54","username":"ttt"}]}
+2018-10-31 17:40:48,076 DEBUG [app.py:51]: 127.0.0.1 GET /test/ 
+2018-10-31 17:40:48,078 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}, {'username': u'ttt', 'update_time': u'2018-10-31 17:21:54', 'password': u'qqqwww', 'create_time': u'2018-10-31 17:21:54', 'id': 2}]
+2018-10-31 17:40:48,078 DEBUG [app.py:59]: 127.0.0.1 GET /test/ 200 {"data":[{"create_time":"2018-10-31 16:47:19","id":1,"password":"aaabbb","update_time":"2018-10-31 16:47:19","username":"yyy"},{"create_time":"2018-10-31 17:21:54","id":2,"password":"qqqwww","update_time":"2018-10-31 17:21:54","username":"ttt"}]}
+2018-10-31 17:57:50,694 DEBUG [app.py:51]: 127.0.0.1 PUT /test/ {"id": 2
+"username": "hhh",
+"password": "nnnmmm"}
+2018-10-31 17:57:50,696 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\myfile\myBlog\server\app\src\handler\test.py", line 57, in update_test
+    data = request.get_json(force=True)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 82, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 108, in on_json_loading_failed
+    raise BadRequest()
+BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+2018-10-31 17:57:50,697 DEBUG [app.py:59]: 127.0.0.1 PUT /test/ 200 {"status":9999}
+2018-10-31 17:58:49,134 DEBUG [app.py:51]: 127.0.0.1 PUT /test/ {"id": 2
+"username": "hhh",
+"password": "nnnmmm"}
+2018-10-31 17:58:49,137 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\myfile\myBlog\server\app\src\handler\test.py", line 57, in update_test
+    data = request.get_json(force=True)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 82, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 108, in on_json_loading_failed
+    raise BadRequest()
+BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+2018-10-31 17:58:49,137 DEBUG [app.py:59]: 127.0.0.1 PUT /test/ 200 {"status":9999}
+2018-10-31 17:59:30,315 DEBUG [app.py:51]: 127.0.0.1 PUT /test {"id": 2
+"username": "hhh",
+"password": "nnnmmm"}
+2018-10-31 17:59:30,316 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1791, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1774, in raise_routing_exception
+    raise request.routing_exception
+RequestRedirect: 301 Moved Permanently: None
+
+2018-10-31 17:59:30,318 DEBUG [app.py:59]: 127.0.0.1 PUT /test 200 {"status":9999}
+2018-10-31 18:01:25,737 DEBUG [app.py:51]: 127.0.0.1 PUT /test {"id": 2
+"username": "hhh",
+"password": "nnnmmm"}
+2018-10-31 18:01:25,740 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1791, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1774, in raise_routing_exception
+    raise request.routing_exception
+RequestRedirect: 301 Moved Permanently: None
+
+2018-10-31 18:01:25,740 DEBUG [app.py:59]: 127.0.0.1 PUT /test 200 {"status":9999}
+2018-10-31 18:02:05,867 DEBUG [app.py:51]: 127.0.0.1 PUT /test/ {"id": 2,
+"username": "hhh",
+"password": "nnnmmm"}
+2018-10-31 18:02:05,868 DEBUG [test.py:56]: {u'username': u'hhh', u'password': u'nnnmmm'}
+2018-10-31 18:02:06,119 DEBUG [app.py:59]: 127.0.0.1 PUT /test/ 200 {"code":0}
+2018-10-31 18:02:11,424 DEBUG [app.py:51]: 127.0.0.1 GET /test/ 
+2018-10-31 18:02:11,426 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}, {'username': u'hhh', 'update_time': u'2018-10-31 17:21:54', 'password': u'nnnmmm', 'create_time': u'2018-10-31 17:21:54', 'id': 2}]
+2018-10-31 18:02:11,426 DEBUG [app.py:59]: 127.0.0.1 GET /test/ 200 {"data":[{"create_time":"2018-10-31 16:47:19","id":1,"password":"aaabbb","update_time":"2018-10-31 16:47:19","username":"yyy"},{"create_time":"2018-10-31 17:21:54","id":2,"password":"nnnmmm","update_time":"2018-10-31 17:21:54","username":"hhh"}]}
+2018-10-31 18:05:05,354 DEBUG [app.py:51]: 127.0.0.1 DELETE /test/2 {"id": 2,
+"username": "hhh",
+"password": "nnnmmm"}
+2018-10-31 18:05:05,358 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1791, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1774, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+
+2018-10-31 18:05:05,358 DEBUG [app.py:59]: 127.0.0.1 DELETE /test/2 200 {"status":9999}
+2018-10-31 18:05:38,367 DEBUG [app.py:51]: 127.0.0.1 DELETE /test/2 
+2018-10-31 18:05:38,368 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1791, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1774, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+
+2018-10-31 18:05:38,368 DEBUG [app.py:59]: 127.0.0.1 DELETE /test/2 200 {"status":9999}
+2018-10-31 18:06:09,414 DEBUG [app.py:51]: 127.0.0.1 DELETE /test/2 
+2018-10-31 18:06:09,415 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\myfile\myBlog\server\app\src\handler\test.py", line 57, in delete_one_test
+    data = request.get_json(force=True)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 82, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 108, in on_json_loading_failed
+    raise BadRequest()
+BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+2018-10-31 18:06:09,415 DEBUG [app.py:59]: 127.0.0.1 DELETE /test/2 200 {"status":9999}
+2018-10-31 18:07:28,292 DEBUG [app.py:51]: 127.0.0.1 DELETE /test/2 
+2018-10-31 18:07:28,292 DEBUG [test.py:40]: {'id': u'2'}
+2018-10-31 18:07:28,292 DEBUG [test.py:50]: Traceback (most recent call last):
+  File "E:\myfile\myBlog\server\app\src\model\test.py", line 45, in db_test_delete
+    cursor.execute(sql, (param["username"],))
+KeyError: 'username'
+
+2018-10-31 18:07:28,292 DEBUG [app.py:59]: 127.0.0.1 DELETE /test/2 200 {"code":10001}
+2018-10-31 18:09:58,230 DEBUG [app.py:51]: 127.0.0.1 DELETE /test/2 
+2018-10-31 18:09:58,230 DEBUG [test.py:40]: {'id': u'2'}
+2018-10-31 18:09:58,479 DEBUG [app.py:59]: 127.0.0.1 DELETE /test/2 200 {"code":0}
+2018-10-31 18:10:05,832 DEBUG [app.py:51]: 127.0.0.1 GET /test/ 
+2018-10-31 18:10:05,832 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}]
+2018-10-31 18:10:05,834 DEBUG [app.py:59]: 127.0.0.1 GET /test/ 200 {"data":[{"create_time":"2018-10-31 16:47:19","id":1,"password":"aaabbb","update_time":"2018-10-31 16:47:19","username":"yyy"}]}
+2018-10-31 18:10:39,306 DEBUG [app.py:51]: 127.0.0.1 POST /test/ {
+	"username": "ppp",
+	"password": "oooiii"
+}
+2018-10-31 18:10:39,308 DEBUG [test.py:24]: {u'username': u'ppp', u'password': u'oooiii'}
+2018-10-31 18:10:39,538 DEBUG [app.py:59]: 127.0.0.1 POST /test/ 200 {"code":0}
+2018-10-31 18:10:43,148 DEBUG [app.py:51]: 127.0.0.1 GET /test/ 
+2018-10-31 18:10:43,148 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}, {'username': u'ppp', 'update_time': u'2018-10-31 18:10:39', 'password': u'oooiii', 'create_time': u'2018-10-31 18:10:39', 'id': 2}]
+2018-10-31 18:10:43,150 DEBUG [app.py:59]: 127.0.0.1 GET /test/ 200 {"data":[{"create_time":"2018-10-31 16:47:19","id":1,"password":"aaabbb","update_time":"2018-10-31 16:47:19","username":"yyy"},{"create_time":"2018-10-31 18:10:39","id":2,"password":"oooiii","update_time":"2018-10-31 18:10:39","username":"ppp"}]}
