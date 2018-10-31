@@ -2,3 +2,25 @@
 2018-10-31 15:55:17,404 DEBUG [test.py:23]: get test info: []
 2018-10-31 15:55:18,140 DEBUG [test.py:23]: get test info: []
 2018-10-31 15:55:18,654 DEBUG [test.py:23]: get test info: []
+2018-10-31 16:43:54,460 DEBUG [test.py:27]: get test info: []
+2018-10-31 16:45:27,871 DEBUG [test.py:22]: {u'username': u'yyy', u'password': u'aaabbb'}
+2018-10-31 16:45:57,890 DEBUG [test.py:22]: {u'username': u'yyy', u'password': u'aaabbb'}
+2018-10-31 16:46:05,007 DEBUG [test.py:22]: {u'username': u'yyy', u'password': u'aaabbb'}
+2018-10-31 16:47:19,782 DEBUG [test.py:22]: {u'username': u'yyy', u'password': u'aaabbb'}
+2018-10-31 16:47:25,319 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}]
+2018-10-31 16:47:39,874 DEBUG [test.py:22]: {u'username': u'ttt', u'password': u'fffggg'}
+2018-10-31 16:47:43,434 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}, {'username': u'ttt', 'update_time': u'2018-10-31 16:47:39', 'password': u'fffggg', 'create_time': u'2018-10-31 16:47:39', 'id': 2}]
+2018-10-31 16:57:39,351 DEBUG [test.py:39]: {u'username': u'ttt', u'password': u'fffggg'}
+2018-10-31 16:57:39,369 DEBUG [test.py:49]: Traceback (most recent call last):
+  File "E:\myfile\myBlog\server\app\src\model\test.py", line 44, in db_test_delete
+    cursor.execute(sql, (param["username"]))
+ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1, and there are 3 supplied.
+
+2018-10-31 16:58:45,229 DEBUG [test.py:39]: {u'username': u'ttt'}
+2018-10-31 16:58:45,230 DEBUG [test.py:49]: Traceback (most recent call last):
+  File "E:\myfile\myBlog\server\app\src\model\test.py", line 44, in db_test_delete
+    cursor.execute(sql, (param["username"]))
+ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1, and there are 3 supplied.
+
+2018-10-31 17:00:23,388 DEBUG [test.py:39]: {u'username': u'ttt'}
+2018-10-31 17:00:29,477 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}]
