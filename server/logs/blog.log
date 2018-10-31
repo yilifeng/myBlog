@@ -24,3 +24,50 @@ ProgrammingError: Incorrect number of bindings supplied. The current statement u
 
 2018-10-31 17:00:23,388 DEBUG [test.py:39]: {u'username': u'ttt'}
 2018-10-31 17:00:29,477 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}]
+2018-10-31 17:20:37,349 DEBUG [app.py:51]: 127.0.0.1 POST /test/ {"username": "ttt"}
+2018-10-31 17:20:37,349 DEBUG [test.py:23]: {u'username': u'ttt'}
+2018-10-31 17:20:37,355 DEBUG [test.py:33]: Traceback (most recent call last):
+  File "E:\myfile\myBlog\server\app\src\model\test.py", line 28, in db_test_create
+    cursor.execute(sql, (param["username"], param["password"]))
+KeyError: 'password'
+
+2018-10-31 17:20:37,355 DEBUG [app.py:59]: 127.0.0.1 POST /test/ 200 {"code":10001}
+2018-10-31 17:21:13,834 DEBUG [app.py:51]: 127.0.0.1 POST /test/ {"username": "ttt"，
+"password": "qqqwww"}
+2018-10-31 17:21:13,852 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\myfile\myBlog\server\app\src\handler\test.py", line 33, in create_test
+    data = request.get_json(force=True)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 82, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 108, in on_json_loading_failed
+    raise BadRequest()
+BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+2018-10-31 17:21:13,852 DEBUG [app.py:59]: 127.0.0.1 POST /test/ 200 {"status":9999}
+2018-10-31 17:21:45,940 DEBUG [app.py:51]: 127.0.0.1 POST /test/ {"username": "ttt"，
+"password": "qqqwww"}
+2018-10-31 17:21:45,943 ERROR [app.py:85]: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\myfile\myBlog\server\app\src\handler\test.py", line 33, in create_test
+    data = request.get_json(force=True)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 82, in get_json
+    rv = self.on_json_loading_failed(e)
+  File "C:\Python27\lib\site-packages\flask\wrappers.py", line 108, in on_json_loading_failed
+    raise BadRequest()
+BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+2018-10-31 17:21:45,944 DEBUG [app.py:59]: 127.0.0.1 POST /test/ 200 {"status":9999}
+2018-10-31 17:21:54,282 DEBUG [app.py:51]: 127.0.0.1 POST /test/ {"username": "ttt",
+"password": "qqqwww"}
+2018-10-31 17:21:54,283 DEBUG [test.py:23]: {u'username': u'ttt', u'password': u'qqqwww'}
+2018-10-31 17:21:54,417 DEBUG [app.py:59]: 127.0.0.1 POST /test/ 200 {"code":0}
+2018-10-31 17:22:16,180 DEBUG [app.py:51]: 127.0.0.1 GET /test/ 
+2018-10-31 17:22:16,181 DEBUG [test.py:27]: get test info: [{'username': u'yyy', 'update_time': u'2018-10-31 16:47:19', 'password': u'aaabbb', 'create_time': u'2018-10-31 16:47:19', 'id': 1}, {'username': u'ttt', 'update_time': u'2018-10-31 17:21:54', 'password': u'qqqwww', 'create_time': u'2018-10-31 17:21:54', 'id': 2}]
+2018-10-31 17:22:16,183 DEBUG [app.py:59]: 127.0.0.1 GET /test/ 200 {"data":[{"create_time":"2018-10-31 16:47:19","id":1,"password":"aaabbb","update_time":"2018-10-31 16:47:19","username":"yyy"},{"create_time":"2018-10-31 17:21:54","id":2,"password":"qqqwww","update_time":"2018-10-31 17:21:54","username":"ttt"}]}
