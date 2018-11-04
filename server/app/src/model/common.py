@@ -13,13 +13,14 @@ def get_data(table, param=None):
     try:
         conn = get_db_conn()
         cursor = conn.cursor()
-        data = dict_2_str_update(param)
 
         if param:
+            data = dict_2_str_update(param)
             query = "SELECT * FROM {} WHERE {}".format(table, ','.join(data[0]))
+            rs = cursor.execute(query, tuple(data[1]))
         else:
             query = "SELECT * FROM {}".format(table)
-        rs = cursor.execute(query, tuple(data[1]))
+            rs = cursor.execute(query)
         data = rs.fetchall()
         cursor.close()
         return data

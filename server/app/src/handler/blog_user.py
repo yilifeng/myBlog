@@ -14,9 +14,22 @@ blueprint = Blueprint("user", __name__, url_prefix="/user")
 
 @blueprint.route('/<id>', methods=['GET'])
 def get_one(id):
-    data = blog_user.get_one(id)
-    logger.debug("get test info: {}".format(data[0]["content"]))
-    return jsonify({"status": 0, "data": data[0]["content"]})
+    data = blog_user.get_one({"id": id})
+    if data:
+        logger.debug("get test info: {}".format(data))
+        return jsonify({"status": 0, "data": data})
+    else:
+        return jsonify({"status": 0, "data": []})
+
+
+@blueprint.route('/', methods=['GET'])
+def get_all():
+    data = blog_user.get_one()
+    if data:
+        logger.debug("get test info: {}".format(data))
+        return jsonify({"status": 0, "data": data})
+    else:
+        return jsonify({"status": 0, "data": []})
 
 
 @blueprint.route('/', methods=['POST'])
@@ -66,3 +79,17 @@ def update_test():
     if res:
         return jsonify({"code": 0})
     return jsonify({"code": 10001})
+
+
+@blueprint.route('/login', methods=['POST'])
+def login():
+    data = request.get_json(force=True)
+    username = data["username"]
+    password = data["password"]
+    if not (isinstance(data, dict)):
+        logger.error("create test, data is not dict: data {}".format(data))
+
+    res = blog_user.get_one({"username": username})
+    if res and res[0]["password"] == password:
+        return jsonify({"code": 0, "token": res[0]["id"], "username": username})
+    return jsonify({"code": 10002, "message": "用户名或密码错误"})

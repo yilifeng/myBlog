@@ -11,8 +11,16 @@ import common
 logger = log.get_logger()
 
 
-def get_one(param):
-    return common.get_data("db_blog_user", param)
+def get_one(param=None):
+    data = common.get_data("db_blog_user", param)
+    res = []
+    for one_data in data:
+        tmp = {}
+        tmp["id"] = one_data["id"]
+        tmp["username"] = one_data["username"]
+        tmp["password"] = one_data["password"]
+        res.append(tmp)
+    return res
 
 
 def delete_one(param):
@@ -25,7 +33,7 @@ def create_user(param):
         conn = get_db_conn()
         cursor = conn.cursor()
 
-        sql = "INSERT INTO db_blog_user(id, username, password, ) VALUES(?, ?, ?)"
+        sql = "INSERT INTO db_blog_user(id, username, password) VALUES(?, ?, ?)"
         cursor.execute(sql, (get_uuid_id(), param["username"], param["password"]))
         conn.commit()
         cursor.close()

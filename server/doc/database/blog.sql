@@ -92,7 +92,7 @@ DROP TABLE IF EXISTS db_blog_user;
 CREATE TABLE db_blog_user (
     id       STRING (32) DEFAULT "",
     username STRING (64) DEFAULT "",
-    passwod  STRING (32) DEFAULT ""
+    password STRING (32) DEFAULT ""
 );
 
 

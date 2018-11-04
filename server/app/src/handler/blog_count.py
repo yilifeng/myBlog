@@ -15,8 +15,11 @@ blueprint = Blueprint("count", __name__, url_prefix="/count")
 @blueprint.route('/<id>', methods=['GET'])
 def get_one(id):
     data = blog_count.get_one(id)
-    logger.debug("get test info: {}".format(data[0]["content"]))
-    return jsonify({"status": 0, "data": data[0]["content"]})
+    if data:
+        logger.debug("get test info: {}".format(data))
+        return jsonify({"status": 0, "data": data})
+    else:
+        return jsonify({"status": 0, "data": []})
 
 
 @blueprint.route('/', methods=['POST'])
