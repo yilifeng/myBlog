@@ -40,8 +40,6 @@ def create_content(param):
         param["mainkeyId"] = get_uuid_id()
         param["discussId"] = get_uuid_id()
         res &= create_article(param)
-        res &= create_mainkey(param)
-        res &= create_discuss(param)
         res &= create_count(param)
         return res
     except:

@@ -11,7 +11,7 @@ import common
 logger = log.get_logger()
 
 
-def get_one(param):
+def get_one(param=None):
     return common.get_data("db_blog_article", param)
 
 
@@ -28,7 +28,7 @@ def create_article(param):
         sql = "INSERT INTO db_blog_article(id, contentId, title, abstr, categoryId, hotTag, " \
               "mainKeyId, author, authorId) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
         cursor.execute(sql, (param["articleId"], param["contentId"], param["title"], param["abstr"], param["categoryId"],
-                             param["hotTag"], param["mainKeyId"], param["author"], param["authorId"]))
+                             0, param["mainkeyId"], param["author"], param["authorId"]))
         conn.commit()
         cursor.close()
         return True
