@@ -14,7 +14,17 @@ blueprint = Blueprint("content", __name__, url_prefix="/content")
 
 @blueprint.route('/<id>', methods=['GET'])
 def get_one(id):
-    data = blog_content.get_one(id)
+    data = blog_content.get_one({'id': id})
+    if data:
+        logger.debug("get test info: {}".format(data))
+        return jsonify({"status": 0, "data": data})
+    else:
+        return jsonify({"status": 0, "data": []})
+
+
+@blueprint.route('/', methods=['GET'])
+def get_all():
+    data = blog_content.get_one(None)
     if data:
         logger.debug("get test info: {}".format(data))
         return jsonify({"status": 0, "data": data})

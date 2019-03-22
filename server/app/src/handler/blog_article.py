@@ -24,6 +24,7 @@ def get_one(id):
 
 @blueprint.route('/', methods=['GET'])
 def get_all():
+    logger.debug("in get article ...")
     data = blog_article.get_one()
     if data:
         logger.debug("get test info: {}".format(data))
