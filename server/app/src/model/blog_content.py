@@ -29,13 +29,14 @@ def create_content(param):
         conn = get_db_conn()
         cursor = conn.cursor()
         res = True
+        content_id = get_uuid_id()
 
         sql = "INSERT INTO db_blog_content(id, content) VALUES(?, ?)"
-        cursor.execute(sql, (get_uuid_id(), param["content"]))
+        cursor.execute(sql, (content_id, param["content"]))
         conn.commit()
         cursor.close()
         param["articleId"] = get_uuid_id()
-        param["contentId"] = get_uuid_id()
+        param["contentId"] = content_id
         param["categoryId"] = get_uuid_id()
         param["mainkeyId"] = get_uuid_id()
         param["discussId"] = get_uuid_id()
