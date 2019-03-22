@@ -17,15 +17,16 @@ def get_data(table, param=None):
         if param:
             data = dict_2_str_update(param)
             query = "SELECT * FROM {} WHERE {}".format(table, ','.join(data[0]))
-            logger.debug("query is : {}".format(query))
+            logger.debug("query is : {}, data: {}".format(query, data))
             rs = cursor.execute(query, tuple(data[1]))
         else:
             query = "SELECT * FROM {}".format(table)
             rs = cursor.execute(query)
         data = rs.fetchall()
         res = []
-        d = {}
         for one_data in data:
+            d = {}
+            logger.debug("one data: {}".format(one_data))
             for idx, col in enumerate(cursor.description):
                 logger.debug("idx: {}, col: {}".format(idx, col))
                 d[col[0]] = one_data[col[0]]
